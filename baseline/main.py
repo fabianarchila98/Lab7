@@ -23,7 +23,7 @@ parser.add_argument('--test-batch-size', type=int, default=128, metavar='N',
                     help='input batch size for testing (default: 128)')
 parser.add_argument('--epochs', type=int, default=15, metavar='N',
                     help='number of epochs to train (default: 15)')
-parser.add_argument('--lr', type=float, default=0.05, metavar='LR',
+parser.add_argument('--lr', type=float, default=0.01, metavar='LR',
                     help='learning rate (default: 0.01)')
 parser.add_argument('--momentum', type=float, default=0.5, metavar='M',
                     help='SGD momentum (default: 0.5)')
@@ -54,11 +54,11 @@ train_loader = torch.utils.data.DataLoader(
     datasets.VOCSegmentation(
         root_dir, image_set='train', download=False, year='2012',
         transform=transforms.Compose([
-            transforms.Resize((256, 256)),
+            transforms.Resize((128, 128)),
             transforms.ToTensor(),
             transforms.Normalize([.485, .456, .406], [.229, .224, .225])]),
         target_transform=transforms.Compose([
-            transforms.Resize((256, 256), interpolation=Image.NEAREST),
+            transforms.Resize((128, 128), interpolation=Image.NEAREST),
             transforms.ToTensor()])
         ),
     batch_size=args.batch_size, shuffle=True, **kwargs)
@@ -67,11 +67,11 @@ test_loader = torch.utils.data.DataLoader(
     datasets.VOCSegmentation(
         root_dir, image_set='val', download=False, year='2012',
         transform=transforms.Compose([
-            transforms.Resize((256, 256)),
+            transforms.Resize((128, 128)),
             transforms.ToTensor(),
             transforms.Normalize([.485, .456, .406], [.229, .224, .225])]),
         target_transform=transforms.Compose([
-            transforms.Resize((256, 256), interpolation=Image.NEAREST),
+            transforms.Resize((128, 128), interpolation=Image.NEAREST),
             transforms.ToTensor()])),
     batch_size=args.batch_size, shuffle=True, **kwargs)
 
