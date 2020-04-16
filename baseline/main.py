@@ -27,7 +27,7 @@ parser.add_argument('--lr', type=float, default=0.01, metavar='LR',
                     help='learning rate (default: 0.01)')
 parser.add_argument('--momentum', type=float, default=0.5, metavar='M',
                     help='SGD momentum (default: 0.5)')
-parser.add_argument('--gamma', type=float, default=2, metavar='M',
+parser.add_argument('--gamma', type=float, default=0.5, metavar='M',
                     help='learning rate decay factor (default: 0.5)')
 parser.add_argument('--no-cuda', action='store_true', default=False,
                     help='disables CUDA training')
