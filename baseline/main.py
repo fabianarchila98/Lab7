@@ -25,7 +25,7 @@ parser.add_argument('--epochs', type=int, default=15, metavar='N',
                     help='number of epochs to train (default: 15)')
 parser.add_argument('--lr', type=float, default=0.01, metavar='LR',
                     help='learning rate (default: 0.01)')
-parser.add_argument('--momentum', type=float, default=0.5, metavar='M',
+parser.add_argument('--momentum', type=float, default=1, metavar='M',
                     help='SGD momentum (default: 0.5)')
 parser.add_argument('--gamma', type=float, default=0.5, metavar='M',
                     help='learning rate decay factor (default: 0.5)')
@@ -76,7 +76,7 @@ test_loader = torch.utils.data.DataLoader(
     batch_size=args.batch_size, shuffle=True, **kwargs)
 
 # Model
-model = models.segmentation.deeplabv3_resnet101(pretrained=False)
+model = models.segmentation.deeplabv3_resnet50(pretrained=False)
 cp_model = copy.deepcopy(model)
 
 if args.cuda:
