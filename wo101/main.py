@@ -52,7 +52,7 @@ if args.cuda:
 kwargs = {'num_workers': 0, 'pin_memory': True} if args.cuda else {}
 
 # Data loaders
-root_dir = '/media/sda1/vision2020_01/Data'  # Change this based on the server you are using
+root_dir = '/media/user_home2/vision2020_01/Data'  # Change this based on the server you are using
 train_loader = torch.utils.data.DataLoader(
     datasets.VOCSegmentation(
         root_dir, image_set='train', download=False, year='2012',
