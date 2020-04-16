@@ -67,11 +67,11 @@ test_loader = torch.utils.data.DataLoader(
     datasets.VOCSegmentation(
         root_dir, image_set='val', download=False, year='2012',
         transform=transforms.Compose([
-            transforms.Resize((128, 128)),
+            transforms.Resize((256, 256)),
             transforms.ToTensor(),
             transforms.Normalize([.485, .456, .406], [.229, .224, .225])]),
         target_transform=transforms.Compose([
-            transforms.Resize((128, 128), interpolation=Image.NEAREST),
+            transforms.Resize((256, 256), interpolation=Image.NEAREST),
             transforms.ToTensor()])),
     batch_size=args.batch_size, shuffle=True, **kwargs)
 
